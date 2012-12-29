@@ -8,6 +8,8 @@ module Facteur
     class Mailbox
       include Mongoid::Document
       include Facteur::MailboxModel
+
+      attr_accessible :name
     end
     
   else

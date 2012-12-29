@@ -9,9 +9,11 @@ describe Facteur::AddresseeModel do
       Member.class_exec do
         include Mongoid::Document
         include Facteur::AddresseeModel
-        field :name, :require => true
+        field :name
         mailbox :private_mailbox, :default => true
         mailbox :public_mailbox
+        validates_presence_of :name
+        validates_uniqueness_of :name
       end
       
       # create the users
@@ -29,7 +31,9 @@ describe Facteur::AddresseeModel do
       Member = Class.new
       Member.class_exec do
         include Mongoid::Document
-        field :name, :require => true
+        field :name
+        validates_presence_of :name
+        validates_uniqueness_of :name
       end
       
       # create the users
