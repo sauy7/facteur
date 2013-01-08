@@ -16,6 +16,9 @@ tmtags
 ## RUBYMINE
 .idea
 
+## RVM
+.rvmrc
+
 ## PROJECT::GENERAL
 coverage
 rdoc
