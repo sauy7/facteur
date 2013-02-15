@@ -3,7 +3,7 @@ PATH
   specs:
     facteur (2.0.0)
       activerecord (~> 3.2.9)
-      mongoid (~> 3.0.0)
+      mongoid (~> 3.0)
 
 GEM
   remote: http://rubygems.org/
