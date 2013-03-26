@@ -44,17 +44,20 @@ shared_examples_for "an addressee model" do
       message = @john.send_message('message contents', :to => @peter, :in => :private_mailbox)
       message.author.should == @john
       message.body.should == 'message contents'
+      message.created_at.should_not == nil
       
       message = @john.send_message('message contents', :to => @peter, :in => :private_mailbox, :subject => 'test')
       message.author.should == @john
       message.body.should == 'message contents'
       message.subject.should == 'test'
+      message.created_at.should_not == nil
     end
     
     it "sends the messages in the default mailbox" do
       message = @john.send_message('message contents', :to => @peter)
       message.author.should == @john
       message.body.should == 'message contents'
+      message.created_at.should_not == nil
     end
     
     it "could not send a message if the addressee is not given" do
@@ -69,18 +72,22 @@ shared_examples_for "an addressee model" do
       message = @john.send_message('message contents', :to => [@peter, @james, @jane], :in => :private_mailbox)
       message.author.should == @john
       message.body.should == 'message contents'
-      
+      message.created_at.should_not == nil
+
       message = @peter.private_mailbox.messages.last
       message.author.should == @john
       message.body.should == 'message contents'
-      
+      message.created_at.should_not == nil
+
       message = @james.private_mailbox.messages.last
       message.author.should == @john
       message.body.should == 'message contents'
-      
+      message.created_at.should_not == nil
+
       message = @jane.private_mailbox.messages.last
       message.author.should == @john
       message.body.should == 'message contents'
+      message.created_at.should_not == nil
     end
     
     it "saves the messages sent" do

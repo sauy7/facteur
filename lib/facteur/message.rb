@@ -7,7 +7,6 @@ module Facteur
   elsif Object.const_defined? :Mongoid
     class Message
       include Mongoid::Document
-      include Mongoid::Timestamps
       include Facteur::MessageModel
     end
     
