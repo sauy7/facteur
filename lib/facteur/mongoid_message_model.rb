@@ -3,7 +3,6 @@ require 'mongoid'
 module Facteur
   module MongoidMessageModel
     extend ActiveSupport::Concern
-    include Mongoid::Timestamps
 
     included do
       field :body
